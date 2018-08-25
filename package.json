@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "graphql-cli": "^2.16.5",
     "graphql-yoga": "^1.16.1",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "prisma-binding": "^2.1.4"
   }
 }
