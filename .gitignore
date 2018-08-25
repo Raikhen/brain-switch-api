@@ -3,4 +3,5 @@ node_modules
 package-lock.json
 
 # with credentials
+src/credentials.js
 database/prisma.yml
