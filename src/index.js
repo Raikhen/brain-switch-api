@@ -4,12 +4,16 @@ const { secret } = require('./credentials')
 
 const Query = require('./resolvers/Query')
 const Mutation = require('./resolvers/Mutation')
+const Subscription = require('./resolvers/Subscription')
 const AuthPayload = require('./resolvers/AuthPayload')
+const Feed = require('./resolvers/Feed')
 
 const resolvers = {
   Query,
   Mutation,
-  AuthPayload
+  Subscription,
+  AuthPayload,
+  Feed
 }
 
 const server = new GraphQLServer({

@@ -66,8 +66,41 @@ const login = async (root, args, ctx, info) => {
   }
 }
 
+const vote = async (root, args, ctx, info) => {
+  const userId = getUserId(ctx)
+
+  const voteExists = await ctx.db.exists.Vote({
+    user: {
+      id: userId
+    },
+    link: {
+      id: args.linkId
+    }
+  })
+
+  if (voteExists) {
+    throw new Error('Already voted for link')
+  }
+
+  return ctx.db.mutation.createVote({
+    data: {
+      user: {
+        connect: {
+          id: userId
+        }
+      },
+      link: {
+        connect: {
+          id: args.linkId
+        }
+      }
+    }
+  }, info)
+}
+
 module.exports = {
   login,
   signUp,
-  post
+  post,
+  vote
 }
